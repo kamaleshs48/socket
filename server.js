@@ -28,6 +28,11 @@ io.sockets.on("connection", socket => {
   socket.on("candidate", (id, message) => {
     socket.to(id).emit("candidate", socket.id, message);
   });
+  
+   socket.on("sendmessage", (id, message) => {
+    socket.to(id).emit("sendmessage", socket.id, message);
+  });
+  
   socket.on("disconnect", () => {
     socket.to(broadcaster).emit("disconnectPeer", socket.id);
   });
