@@ -19,8 +19,8 @@ io.sockets.on("connection", socket => {
   socket.on("watcher", () => {
     socket.to(broadcaster).emit("watcher", socket.id);
   });
-  socket.on("offer", (id, message) => {
-    socket.to(id).emit("offer", socket.id, message);
+  socket.on("offer", (id, message,user_detail) => {
+    socket.to(id).emit("offer", socket.id, message,user_detail);
   });
   socket.on("answer", (id, message) => {
     socket.to(id).emit("answer", socket.id, message);
